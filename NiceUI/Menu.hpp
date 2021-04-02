@@ -13,7 +13,7 @@ public:
     CENTERED, LEFT, RIGHT, DOWN, UP
   };
   void update();
-  void add_button(char* fontdir, char* text, int ptsize, item_location location,  const std::function<void()> fn);
+  void add_button(char* fontdir, char* text, int ptsize, item_location location, bool filled, const std::function<void(Button& button)> fn);
   void add_text(char* fontdir, char* text, int ptsize, item_location location,  SDL_Color color);
 private:
   SDL_Rect set_loc(item_location loc, char* text, unsigned char ptsize); 

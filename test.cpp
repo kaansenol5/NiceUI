@@ -26,13 +26,17 @@ int main(){
     UI ui(ren, w, h); // MAKE AN UI OBJECT
 
     char* fontdir = (char*)"../fonts/font.ttf";
-    std::cout << "aaaa" << std::endl;
     ui.add_menu([fontdir](Menu& menu){
-        menu.add_button(fontdir, (char*)"Hello", 24, Menu::CENTERED, [](){
+        menu.add_button(fontdir, (char*)"Hello", 24, Menu::CENTERED, true, [](Button& button){
             std::cout << "hello" << std::endl;
+            button.change_colors(Colors::Red, Colors::Gray, Colors::White);
         });
+        menu.add_button(fontdir, "Quit", 32, Menu::LEFT, false, [](Button& button){
+            exit(0);
+        });
+        menu.add_text(fontdir, "THIS IS A TEST", 21, Menu::UP, Colors::Yellow);
     });
-    
+
     for(;;){
         ui.render();
         SDL_Event event;

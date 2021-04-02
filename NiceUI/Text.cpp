@@ -12,6 +12,8 @@ Text::~Text(){
   //  SDL_DestroyTexture(texture);
 }
 
+
+
 void Text::render(){
     TextureManager::render(texture, NULL, &location);
 }

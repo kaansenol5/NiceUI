@@ -51,21 +51,21 @@ SDL_Rect Menu::set_loc(item_location location, char* text, unsigned char ptsize)
     }
 
     for(auto button : buttons){
-        if(button.location.y == y){
+        if(button.location.y == y && button.location.x == x){
                 y += button.location.h;
             }
         }
     for(auto text : texts){
-        if(text.location.y == y){
+        if(text.location.y == y && text.location.x == x){
              y += text.location.h;
         }
     }
     return {x, y, w, h};
 }
 
-void Menu::add_button(char* fontdir, char* text, int ptsize, item_location location,  const std::function<void()> fn){
+void Menu::add_button(char* fontdir, char* text, int ptsize, item_location location, bool filled,  const std::function<void(Button& button)> fn){
     SDL_Rect dst_rect = set_loc(location, text, ptsize);
-    buttons.push_back({fontdir, text, ptsize, dst_rect, fn});
+    buttons.push_back({fontdir, text, ptsize, dst_rect, filled, fn});
 }
 
 void Menu::add_text(char* fontdir, char* text, int ptsize, item_location location,  SDL_Color color){
