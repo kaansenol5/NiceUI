@@ -9,6 +9,7 @@
 #include <SDL2/SDL_image.h>
 #include <iostream>
 //COLORS.HPP
+namespace NiceUI{
 namespace Colors{
   const SDL_Color White = {255,255,255,255};
   const SDL_Color Red = {255,0,0,255};
@@ -290,3 +291,4 @@ private:
 
 };
 //UI.hpp END
+}
