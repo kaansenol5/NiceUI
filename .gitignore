@@ -5,3 +5,4 @@ build/
 CMakeCache.txt
 Makefile
 CMakeFiles/
+a.out

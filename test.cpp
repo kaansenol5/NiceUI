@@ -1,11 +1,4 @@
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_events.h>
-#include <SDL2/SDL_render.h>
-#include <SDL2/SDL_video.h>
-#include "NiceUI/Button.hpp"
-#include "NiceUI/UI.hpp"
-#include "NiceUI/colors.hpp"
-#include <iostream>
+#include "single_include/NiceUI.hpp"
 
 
 /*
@@ -25,7 +18,7 @@ int main(){
     
     UI ui(ren, w, h); // MAKE AN UI OBJECT
 
-    char* fontdir = (char*)"../fonts/font.ttf";
+    char* fontdir = (char*)"fonts/font.ttf";
     ui.add_menu([fontdir](Menu& menu){
         menu.add_button(fontdir, (char*)"Hello", 24, Menu::CENTERED, true, [](Button& button){
             std::cout << "hello" << std::endl;
